@@ -4,6 +4,7 @@ namespace HcbStoreProductDeal\Entity\Deal;
 use HcBackend\Entity\PageBindInterface;
 use HcBackend\Entity\PageInterface;
 use HcbStoreProductDeal\Entity\Category;
+use HcbStoreProductDeal\Entity\Deal\Localized\Page;
 use HcCore\Entity\EntityInterface;
 use Doctrine\ORM\Mapping as ORM;
 use HcCore\Entity\LocaleBindInterface;
@@ -14,7 +15,7 @@ use HcCore\Entity\LocaleBindInterface;
  * @ORM\Table(name="store_product_deal_localized")
  * @ORM\Entity
  */
-class Localized implements EntityInterface/*, PageBindInterface, LocaleBindInterface*/
+class Localized implements EntityInterface, PageBindInterface, LocaleBindInterface
 {
     /**
      * @var integer
@@ -38,7 +39,7 @@ class Localized implements EntityInterface/*, PageBindInterface, LocaleBindInter
     /**
      * @var Page
      *
-     * @ORM\OneToOne(targetEntity="HcbStoreProductDeal\Entity\Category\Localized\Page", mappedBy="localized")
+     * @ORM\OneToOne(targetEntity="HcbStoreProductDeal\Entity\Deal\Localized\Page", mappedBy="localized")
      */
     protected $page;
 
@@ -118,10 +119,10 @@ class Localized implements EntityInterface/*, PageBindInterface, LocaleBindInter
     /**
      * Set page
      *
-     * @param \HcbStoreProductDeal\Entity\Category\Localized\Page $page
+     * @param PageInterface $page
      * @return Localized
      */
-    public function setPage(\HcbStoreProductDeal\Entity\Category\Localized\Page $page = null)
+    public function setPage(PageInterface $page = null)
     {
         $this->page = $page;
 
@@ -131,7 +132,7 @@ class Localized implements EntityInterface/*, PageBindInterface, LocaleBindInter
     /**
      * Get page
      *
-     * @return \HcbStoreProductDeal\Entity\Category\Localized\Page 
+     * @return PageInterface
      */
     public function getPage()
     {
