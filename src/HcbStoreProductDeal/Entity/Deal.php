@@ -3,6 +3,7 @@ namespace HcbStoreProductDeal\Entity;
 
 use HcCore\Entity\EntityInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Zf2FileUploader\Entity\Image;
 
 /**
  * Deal
@@ -12,6 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Deal implements EntityInterface
 {
+    const STRATEGY_PERCENT = 'percent';
+    const STRATEGY_STATIC = 'static';
+
     /**
      * @var integer
      *
@@ -27,6 +31,44 @@ class Deal implements EntityInterface
      * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     protected $enabled = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strategy", type="string", nullable=false)
+     */
+    protected $strategy;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="value", type="float", nullable=false)
+     */
+    protected $value;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_date", type="datetime", nullable=false)
+     */
+    protected $startDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_date", type="datetime", nullable=false)
+     */
+    protected $endDate;
+
+    /**
+     * @var Image
+     *
+     * @ORM\OneToOne(targetEntity="Zf2FileUploader\Entity\Image")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     * })
+     */
+    private $image;
 
     /**
      * @var Deal\Localized
@@ -100,6 +142,98 @@ class Deal implements EntityInterface
     }
 
     /**
+     * Set strategy
+     *
+     * @param string $strategy
+     * @return Deal
+     */
+    public function setStrategy($strategy)
+    {
+        $this->strategy = $strategy;
+
+        return $this;
+    }
+
+    /**
+     * Get strategy
+     *
+     * @return string
+     */
+    public function getStrategy()
+    {
+        return $this->strategy;
+    }
+
+    /**
+     * Set value
+     *
+     * @param float $value
+     * @return Deal
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * Get value
+     *
+     * @return float 
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set startDate
+     *
+     * @param \DateTime $startDate
+     * @return Deal
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Get startDate
+     *
+     * @return \DateTime 
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * Set endDate
+     *
+     * @param \DateTime $endDate
+     * @return Deal
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * Get endDate
+     *
+     * @return \DateTime 
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
      * Set createdTimestamp
      *
      * @param \DateTime $createdTimestamp
@@ -120,6 +254,29 @@ class Deal implements EntityInterface
     public function getCreatedTimestamp()
     {
         return $this->createdTimestamp;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Zf2FileUploader\Entity\Image $image
+     * @return Deal
+     */
+    public function setImage(\Zf2FileUploader\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Zf2FileUploader\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
