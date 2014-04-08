@@ -82,7 +82,7 @@ class Deal implements EntityInterface
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="HcbStoreProduct\Entity\Product", cascade={"persist"})
-     * @ORM\JoinTable(name="store_product_deal_has_store_product",
+     * @ORM\JoinTable(name="store_product_deal_has_product",
      *   joinColumns={
      *     @ORM\JoinColumn(name="store_product_deal_id", referencedColumnName="id")
      *   },

@@ -9,7 +9,7 @@ use Zf2FileUploader\Entity\Image;
 /**
  * ProductDeal
  *
- * @ORM\Table(name="store_product_deal_has_store_product")
+ * @ORM\Table(name="store_product_deal_has_product")
  * @ORM\Entity
  */
 class ProductDeal implements EntityInterface
