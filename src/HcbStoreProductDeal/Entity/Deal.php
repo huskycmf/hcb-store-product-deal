@@ -3,7 +3,7 @@ namespace HcbStoreProductDeal\Entity;
 
 use HcCore\Entity\EntityInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Zf2FileUploader\Entity\Image;
+use HcBackend\Entity\Image;
 
 /**
  * Deal
@@ -63,7 +63,7 @@ class Deal implements EntityInterface
     /**
      * @var Image
      *
-     * @ORM\OneToOne(targetEntity="Zf2FileUploader\Entity\Image")
+     * @ORM\OneToOne(targetEntity="HcBackend\Entity\Image")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="image_id", referencedColumnName="id")
      * })
@@ -74,7 +74,6 @@ class Deal implements EntityInterface
      * @var Deal\Localized
      *
      * @ORM\OneToMany(targetEntity="HcbStoreProductDeal\Entity\Deal\Localized", mappedBy="deal")
-     * @ORM\OrderBy({"updatedTimestamp" = "DESC"})
      */
     protected $localized = null;
 
@@ -259,10 +258,10 @@ class Deal implements EntityInterface
     /**
      * Set image
      *
-     * @param \Zf2FileUploader\Entity\Image $image
+     * @param \HcBackend\Entity\Image $image
      * @return Deal
      */
-    public function setImage(\Zf2FileUploader\Entity\Image $image = null)
+    public function setImage(\HcBackend\Entity\Image $image = null)
     {
         $this->image = $image;
 
@@ -272,7 +271,7 @@ class Deal implements EntityInterface
     /**
      * Get image
      *
-     * @return \Zf2FileUploader\Entity\Image 
+     * @return \HcBackend\Entity\Image
      */
     public function getImage()
     {

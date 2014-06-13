@@ -4,7 +4,7 @@ namespace HcbStoreProductDeal\Entity;
 use HcbStoreProduct\Entity\Product;
 use HcCore\Entity\EntityInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Zf2FileUploader\Entity\Image;
+use HcBackend\Entity\Image;
 
 /**
  * ProductDeal
