@@ -13,7 +13,7 @@ return array(
                         'product' => array(
                             'route'=>'/product',
                             'child_routes' => array(
-                                'category' => include __DIR__ . '/router/category.config.php'
+                                'deal' => include __DIR__ . '/router/deal.config.php'
                             )
                         )
                     )

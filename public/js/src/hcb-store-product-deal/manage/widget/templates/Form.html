@@ -1,0 +1,51 @@
+<form data-dojo-attach-point="containerNode">
+    <div class="row">
+        <label>${!_t.titleLabel}</label>
+        <input class="${baseClass}Alias"
+               data-dojo-type="dijit/form/ValidationTextBox"
+               data-dojo-props='name:"title", required: "true"' />
+    </div>
+
+    <div class="row">
+        ${!_t.startDateLabel}
+        <div data-dojo-attach-point="startDateWidget"
+             data-dojo-type="dijit/form/DateTextBox"
+             data-dojo-props='name:"startDate", constraints: {formatLength:"short"}'></div>
+    </div>
+
+    <div class="row">
+        ${!_t.endDateLabel}
+        <div data-dojo-attach-point="endDateWidget"
+             data-dojo-type="dijit/form/DateTextBox"
+             data-dojo-props='name:"endDate"'></div>
+    </div>
+
+    <div class="row">
+        ${!_t.strategyLabel}
+        <select data-dojo-type="dijit/form/FilteringSelect"
+                data-dojo-attach-point="strategyWidget"
+                data-dojo-props='name: "strategy"'>
+            <option value="percent" selected>${!_t.percentLabel}</option>
+            <option value="static">${!_t.staticLabel}</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <label>${!_t.valueLabel}</label>
+        <input class="${baseClass}Value"
+               data-dojo-type="dijit/form/ValidationTextBox"
+               data-dojo-props='name:"value", required: "true"' />
+    </div>
+
+    <div class="row">
+        ${!_t.productsLabel}
+        <div data-dojo-attach-point="productsWidget"></div>
+    </div>
+
+    <input class="${baseClass}AddButton"
+           data-dojo-type="dojo-common/form/BusyButton"
+           data-dojo-attach-point="saveButtonWidget"
+           data-dojo-attach-event="onClick: save"
+           data-dojo-props='name:"send",
+                            label:"${!_t.addButton}"' />
+</form>

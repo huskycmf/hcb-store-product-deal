@@ -1,7 +1,7 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
-    "hcb-store-product-deal/store/ProductStore",
+    "hcb-store-product-deal/store/DealStore",
     "dgrid/OnDemandGrid",
     "dgrid/extensions/ColumnHider",
     "dgrid/extensions/ColumnResizer",
@@ -13,7 +13,7 @@ define([
     "dgrid/Keyboard",
     "dgrid/selector",
     "dojo/i18n!../../nls/List"
-], function(declare, lang, StaticPageStore,
+], function(declare, lang, DealStore,
             OnDemandGrid, ColumnHider, ColumnResizer, DijitRegistry,
             _Selection, _Refresher, timestamp, editor, Keyboard,
             selector, translation) {
@@ -24,14 +24,23 @@ define([
         //  summary:
         //      Grid widget for displaying all available clients
         //      as list
-        store: StaticPageStore,
+        store: DealStore,
 
         columns: [
             selector({ label: "", width: 40, selectorType: "checkbox" }),
-            {label: translation['labelId'], hidden: true, field: 'id', sortable: true, resizable: false},
-            editor({label: translation['labelUrl'], field: 'url', hidden: false,
-                    sortable: true, resizable: true, route: '/update/:id'}),
-            timestamp({label: translation['labelCreatedTimestamp'], field: 'createdTimestamp', sortable: true})
+            {label: translation['idLabel'],
+                hidden: true, field: 'id', sortable: false,
+                resizable: false},
+            editor({label: translation['titleLabel'],
+                    hidden: false, field: 'title', sortable: false,
+                    resizable: false, route: '/update/:id'}),
+            {label: translation['startDateLabel'], field: 'startDate', hidden: false,
+                sortable: false, resizable: false},
+            {label: translation['endDateLabel'],
+             field: 'endDate', hidden: false,
+             sortable: false, resizable: false},
+            {label: translation['activeLabel'], field: 'active', hidden: false,
+                sortable: false, resizable: false}
         ],
 
         loadingMessage: translation['loadingMessage'],

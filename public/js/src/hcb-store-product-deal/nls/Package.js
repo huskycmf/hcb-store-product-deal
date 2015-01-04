@@ -1,9 +1,9 @@
 define({ root:
 //begin v1.x content
     ({
-        packageTitle: "Products"
+        packageTitle: "Deals"
     })
 //end v1.x content
-    /*    ,
-     "ru": true */
+//        ,
+//     "ru": true
 });

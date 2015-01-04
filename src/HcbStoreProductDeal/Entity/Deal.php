@@ -37,28 +37,28 @@ class Deal implements EntityInterface
      *
      * @ORM\Column(name="strategy", type="string", nullable=false)
      */
-    protected $strategy;
+    protected $strategy = 'percent';
 
     /**
      * @var float
      *
      * @ORM\Column(name="value", type="float", nullable=false)
      */
-    protected $value;
+    protected $value = '0';
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="start_date", type="datetime", nullable=false)
      */
-    protected $startDate;
+    protected $startDate = null;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="end_date", type="datetime", nullable=false)
+     * @ORM\Column(name="end_date", type="datetime", nullable=true)
      */
-    protected $endDate;
+    protected $endDate = null;
 
     /**
      * @var Image

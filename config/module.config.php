@@ -24,14 +24,14 @@ return array(
         )
     ),
 
-//    'hc-backend'=> array(
-//        'packages' => array(
-//            'hcb-store-product-deal' => array(
-//                'js'=>array(
-//                    'type'=>'content',
-//                    'http_path'=>'/js/src/hcb-store-product-deal'
-//                )
-//            )
-//        )
-//    )
+    'hc-backend'=> array(
+        'packages' => array(
+            'hcb-store-product-deal' => array(
+                'js'=>array(
+                    'type'=>'content',
+                    'http_path'=>'/js/src/hcb-store-product-deal'
+                )
+            )
+        )
+    )
 );
