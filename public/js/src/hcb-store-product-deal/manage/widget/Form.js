@@ -23,7 +23,7 @@ define([
     "dijit/form/NumberTextBox",
     "dojo-common/form/BusyButton",
     "dijit/form/ValidationTextBox",
-    "dojo-common/form/FileInputList",
+    "hc-backend/form/FileInputList",
     "dijit/form/Select",
     "dijit/form/CheckBox",
     "dijit/form/DateTextBox"
